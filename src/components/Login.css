@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.loginpage {
+  background-color: #f5f5dc; 
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column; 
+}
+
+.loginlogo {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 2px 2px 4px #000000;
+  margin-top: 15rem;
+  color: #ffd000;
+  text-align: center;
+}
+
+.turnhome {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.turnhome a {
+  color: rgb(70, 70, 70);
+  font-size: 35px;
+  text-decoration: none;
+  font-weight: 300;
+  position: relative;
+  transition: transform 0.7s, color 0.7s;
+}
+
+.turnhome a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #ffd000;
+  transition: width 0.7s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.turnhome a:hover {
+  color: #ffd000 !important;
+  transform: scale(1.1);
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.turnhome a:hover::after {
+  width: 100%;
+}
+
+.login-box-msg {
+  text-align: center;
+  margin-top: 0;
+  font-family: 'Open Sans', sans-serif;    
+  font-weight: 500;
+  margin-bottom: 10%;
+}
+
+.logincard {
+  border-radius: 10px;
+  background-color: #e9ecef;
+  padding: 1.5rem;
+  margin: 3% auto;
+  width: 20%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.input-group input {
+  width: calc(100% - 2.2rem);
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  border-radius: 5px 0px 0px 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: #e9ecef;
+}
+
+.input-group .icon-group {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  color: #333;
+  background-color: #e9ecef;
+  border: 1px solid #ccc;
+  border-radius: 0 5px 5px 0;
+  padding: 0 0.5rem;
+  z-index: 1;
+}
+
+.input-group.email .icon-group {
+  width: 2rem;
+}
+
+.input-group.password .icon-group {
+  width: 2rem;
+}
+
+.btngirisyap {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 5px;
+  background-color: #ffd000;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btngirisyap:hover {
+  background-color: #e0b800;
+}
+
+.sifremiunuttum {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.sifremiunuttum a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 400;
+  transition: transform 0.3s, color 0.3s;
+  font-size: 16px;
+}
+
+.sifremiunuttum a:hover {
+  color: #ffd000;
+  transform: scale(1.2);
+  text-shadow: 1px 1px 2px #000000;
+}
+
+@media (max-width: 768px) {
+  .logincard {
+    width: 80%;
+  }
+}

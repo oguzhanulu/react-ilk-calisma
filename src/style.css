@@ -1,0 +1,166 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 36px;
+  background-color: rgb(240, 240, 240);
+  color: #ffd000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 6%;
+  text-shadow: 2px 2px 4px #000000;
+} 
+
+nav {
+  display: flex;
+  justify-content: flex-end; /* Menüyü sağa hizala */
+  flex-grow: 1; /* Menüyü header içindeki boşluğu kaplayacak şekilde büyüt */
+  margin-right: 40px; /* Sağ kenardan uzaklık */
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-left: 50px; /* Menü elemanları arasındaki boşluğu ayarla */
+}
+
+nav ul li:first-child {
+  margin-left: 0; /* İlk eleman için soldan boşluğu kaldır */
+}
+
+nav ul li a {
+  display: flex;
+  align-items: center; /* İkon ve metni dikey olarak ortalar */
+  text-decoration: none;
+  color: #000000;
+  font-size: 20px;
+  position: relative; /* Şerit için göreceli konumlandırma */
+  transition: transform 0.7s, color 0.7s;
+  
+  
+}
+nav ul li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px; /* Şerit yüksekliği */
+  background: #ffd000; /* Şerit rengi */
+  transition: width 0.7s; /* Şerit genişliği değişimi için geçiş süresi */
+  position: absolute;
+  bottom: -5px; /* Şeridin metnin altındaki konumu */
+  left: 0;
+}
+
+nav ul li a:hover {
+  color: #ffd000;
+  transform: scale(1.1);
+  text-shadow: 1px 1px 2px #000000; /* Yazıya gölge ekle */
+  
+  
+}
+nav ul li a:hover::after {
+  width: 100%; /* Şeridin genişliği */
+}
+
+nav ul li.active a {
+  color: #ffd000; /* Aktif sekme için yazı rengini değiştir */
+}
+
+.icon-small {
+  font-size: 16px; /* İkon boyutunu küçültür */
+  margin-right: 8px; /* İkon ile metin arasına boşluk ekler */
+}
+
+
+.video-container {
+  position: relative;
+  width: 100%; /* veya ihtiyaca göre bir genişlik */
+  height: 100vh; /* Yükseklik ekran yüksekliğine ayarlanır */
+  margin-top: 60px; /* Header yüksekliğini hesaba katarak boşluk bırakır */
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%; /* Yükseklik video orantısına göre ayarlanır */
+  object-fit: cover; /* Video içeriğini kapsayacak şekilde */
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; /* Dikey olarak ortala */
+  justify-content: center; /* Yatay olarak ortala */
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  padding: 0 10px;
+  box-sizing: border-box; /* Padding dahil */
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    margin-top: 60px; /* Header yüksekliğini hesaba katarak boşluk bırakır */
+    height: auto; /* Yükseklik otomatik olarak ayarlanır */
+  }
+  
+  .video-container video {
+    height: auto; /* Yükseklik otomatik olarak ayarlanır */
+  }
+  
+  .video-overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center; /* Dikey olarak ortala */
+    justify-content: center; /* Yatay olarak ortala */
+    padding: 0 10px;
+    box-sizing: border-box; /* Padding dahil */
+    font-size: 16px; /* Yazı boyutunu mobil görünümde küçült */
+  }
+
+  .video-overlay h1 {
+    font-size: 24px; /* Başlık boyutunu küçült */
+  }
+
+  .video-overlay p {
+    font-size: 16px; /* Paragraf boyutunu küçült */
+  }
+}
+
+@media (max-width: 480px) {
+  .video-overlay h1 {
+    font-size: 20px; /* Daha küçük cihazlarda başlık boyutunu daha da küçült */
+  }
+
+  .video-overlay p {
+    font-size: 14px; /* Daha küçük cihazlarda paragraf boyutunu daha da küçült */
+  }
+}
