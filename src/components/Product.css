@@ -1,0 +1,178 @@
+/* Genel Stil */
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Masaüstü için 4 sütun */
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* 1200px ve altındaki ekranlar için 3 sütun */
+  @media (max-width: 1200px) {
+    .product-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 sütun */
+    }
+  }
+  
+  /* 900px ve altındaki ekranlar için 2 sütun */
+  @media (max-width: 900px) {
+    .product-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 sütun */
+    }
+  }
+  
+  /* 600px ve altındaki ekranlar için 1 sütun */
+  @media (max-width: 600px) {
+    .product-container {
+      grid-template-columns: 1fr; /* 1 sütun */
+    }
+  }
+  
+  /* Ürün kutusu */
+  .product-box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .product-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .product-box h3 {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  /* Detayları Göster Butonu */
+  .product-box button {
+    background-color: #ffd000;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .product-box button:hover {
+    background-color: #ffbb00;
+  }
+  
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Modal'ı en üstte göstermek için z-index ayarı */
+  }
+  
+  /* Modal İçeriği */
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    z-index: 10000; /* İçeriğin modal'dan üstte görünmesini sağlamak için */
+  }
+  
+  .modal-content img {
+    max-width: 100%;   /* Resmin genişliğini pencerede taşmaması için sınırlıyoruz */
+    max-height: 400px; /* Yüksekliği 400px ile sınırlıyoruz, ihtiyaca göre ayar yapabilirsiniz */
+    object-fit: contain; /* Resmin orantılı şekilde görüntülenmesini sağlıyoruz */
+    margin-bottom: 20px; /* Resmin altına boşluk ekliyoruz */
+  }
+  
+  /* Kapat Butonu */
+  .modal-content button.close {
+    background-color: #ff5e00; /* Kırmızı arka plan */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-content button.close:hover {
+    background-color: #ff7b00; /* Hoverda kırmızı tonunda değişim */
+  }
+  
+  /* Satın Al Butonu */
+  .modal-content button.buy {
+    background-color: #ffd000; /* Sarı arka plan */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Butonlar arasına boşluk ekle */
+  }
+  
+  .modal-content button.buy:hover {
+    background-color: #ffbb00; /* Hoverda renk değişimi */
+  }
+  
+  /* Baslik */
+  .baslik {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* About Card */
+  .aboutcard {
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .about-page {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  #about-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .about-page p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* Modal Kapatma Butonu */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    z-index: 101; /* Kapatma butonunu içeriklerin üstünde tutmak için */
+  }
+  
+  .modal-close:hover {
+    color: #ff0000; /* Hoverda kırmızıya dönsün */
+  }
+  

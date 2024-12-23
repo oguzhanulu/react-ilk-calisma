@@ -1,8 +1,11 @@
 import React from 'react';
 import './About.css';
+import PageTitle from '../PageTitle';
 
 function About() {
     return (
+        <>
+        <PageTitle title='Hakkımızda'/>
         <div>
             <div className="video-container">
                 <video autoPlay muted loop>
@@ -12,7 +15,7 @@ function About() {
                 <div className="video-overlay">
                     <h1>Welcome to Our Website</h1>
                     <p>Discover our products and services</p>
-                    <a href="/product">
+                    <a href="/urunumuz">
                         <button className="anasayfabuton">Ürünümüz</button>
                     </a>
                 </div>
@@ -20,7 +23,7 @@ function About() {
             <div className="baslik">BİZİ TANIYIN</div>
             <div className="aboutcard">
                 <div className="about-page">
-                    <h1>Hakkımızda</h1>
+                    <h1 id='about-title'>Hakkımızda</h1>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis hic officiis libero, natus exercitationem reprehenderit, rem repudiandae, similique blanditiis quod aliquid doloremque veritatis deleniti quidem delectus magnam atque laborum omnis?
                     Sunt reprehenderit, quasi voluptatum, aliquam nemo maxime accusantium aut cupiditate dolor inventore cumque? Exercitationem accusamus, quidem quaerat, expedita alias at deleniti praesentium nam asperiores ea ipsum nemo atque corrupti id?
                     Aperiam dignissimos repellat, possimus aliquid beatae voluptatum nobis labore explicabo. Quae similique tenetur eaque obcaecati dolore ex animi quo, voluptate sit reiciendis, quisquam pariatur accusantium, sapiente distinctio excepturi dolores fuga?</p>
@@ -57,6 +60,7 @@ function About() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

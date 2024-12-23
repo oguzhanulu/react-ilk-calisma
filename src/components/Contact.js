@@ -1,8 +1,12 @@
 import React from 'react';
 import './Contact.css';
+import PageTitle from '../PageTitle';
 
 function Contact() {
     return (
+
+        <>
+        <PageTitle title='İletişim'/>
         <div>
             <div className="video-container">
                 <video autoPlay muted loop>
@@ -12,7 +16,7 @@ function Contact() {
                 <div className="video-overlay">
                     <h1>Welcome to Our Website</h1>
                     <p>Discover our products and services</p>
-                    <a href="/product">
+                    <a href="/urunumuz">
                         <button className="anasayfabuton">Ürünümüz</button>
                     </a>
                 </div>
@@ -51,6 +55,7 @@ function Contact() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

@@ -63,6 +63,7 @@ nav ul li a {
   font-size: 20px;
   position: relative;
   transition: transform 0.7s, color 0.7s;
+  cursor: pointer;
 }
 
 nav ul li a::after {

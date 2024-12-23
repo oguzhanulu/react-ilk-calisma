@@ -17,8 +17,7 @@ function App() {
           path="/"
           element={
             <>
-              <Navbar /> {}
-              <PageTitle title="Ana Sayfa" />
+              <Navbar /> 
               <Home />
               <Footer/>
             </>
@@ -28,7 +27,7 @@ function App() {
           path="/urunumuz"
           element={
             <>
-              <Navbar /> {}
+              <Navbar /> 
               <Product />
               <Footer/>
             </>
@@ -38,7 +37,7 @@ function App() {
           path="/hakkimizda"
           element={
             <>
-              <Navbar /> {}
+              <Navbar /> 
               <About />
               <Footer/>
             </>
@@ -48,7 +47,7 @@ function App() {
           path="/iletisim"
           element={
             <>
-              <Navbar /> {}
+              <Navbar /> 
               <Contact />
               <Footer/>
             </>
@@ -58,8 +57,7 @@ function App() {
           path="/giris-yap"
           element={
             <>
-              <PageTitle title="Giriş Yap" />
-              <Login /> {}
+              <Login /> 
             </>
           }
         />

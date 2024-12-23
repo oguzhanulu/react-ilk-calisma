@@ -2,10 +2,12 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'; 
 import './Login.css';
+import PageTitle from '../PageTitle';
 
 function Login() {
   return (
-
+    <>
+    <PageTitle title='Giriş Yap'/>
     
     <div className="loginpage">
       <div className="container">
@@ -46,6 +48,7 @@ function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 export default Login;
