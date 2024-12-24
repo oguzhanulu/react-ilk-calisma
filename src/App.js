@@ -8,6 +8,7 @@ import Product from './components/Product';
 import About from './components/About';
 import Contact from './components/Contact';
 import Login from './components/Login';
+import Admin from './components/Admin'
 
 function App() {
   return (
@@ -58,6 +59,14 @@ function App() {
           element={
             <>
               <Login /> 
+            </>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <>
+              <Admin /> 
             </>
           }
         />
