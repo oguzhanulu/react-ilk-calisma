@@ -51,6 +51,7 @@
   
   /* Detayları Göster Butonu */
   .product-box button {
+    margin-left: 1rem;
     background-color: #ffd000;
     border: none;
     padding: 10px;
@@ -176,3 +177,31 @@
     color: #ff0000; /* Hoverda kırmızıya dönsün */
   }
   
+  /* Filtreleme Butonları */
+.filter-buttons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center; /* Butonları ortalamak için */
+  gap: 20px;
+}
+
+.filter-buttons button {
+  padding: 12px 24px; /* Butonların daha büyük görünmesi için */
+  font-size: 16px;
+  background-color: #ffd000; /* Sarı arka plan */
+  color: #fff; /* Beyaz metin */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Renk değişimini yumuşatmak için */
+}
+
+.filter-buttons button:hover {
+  background-color: #ffbb00; /* Hoverda biraz daha koyu sarı */
+}
+
+.filter-buttons button.active {
+  background-color: #ffbb00; /* Seçilen butonun rengi */
+  color: #fff; /* Metin rengini beyaz yap */
+}
+

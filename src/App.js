@@ -9,6 +9,10 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Admin from './components/Admin'
+import AdminMessages from './components/Adminmessages';
+import Sidebar from './components/Sidebar';
+import AdminProduct from './components/Adminproduct';
+import Cart from './components/Cart';
 
 function App() {
   return (
@@ -67,6 +71,33 @@ function App() {
           element={
             <>
               <Admin /> 
+            </>
+          }
+        />
+        <Route
+          path="/admin-iletisim"
+          element={
+            <>
+              <AdminMessages /> 
+            </>
+          }
+        />
+        <Route
+          path="/admin-urunler"
+          element={
+            <>
+              <AdminProduct /> 
+            </>
+          }
+        />
+        <Route
+          path="/sepet"
+          element={
+            <>
+              
+              <Cart />
+              <Footer/>
+               
             </>
           }
         />

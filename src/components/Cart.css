@@ -1,0 +1,151 @@
+/* Sepet ürün listesi */
+
+/* Navbar için örnek */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;  /* Navbar'ın üstte kalmasını sağlar */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+/* Sepet içeriği için margin-top */
+.cart {
+    margin-top: 100px;  /* Navbar'ın yüksekliğine göre ayarlayın */
+    
+}
+
+.cart h2 {
+    margin-left: 3rem;
+}
+.cart h3 {
+    margin-left: 1px;
+}
+    
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-item img {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+    margin-right: 1rem;
+  }
+  
+  .cart-item .product-info {
+    flex-grow: 1;
+  }
+  
+  .cart-item .product-info h3 {
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .cart-item .product-info p {
+    margin: 0.5rem 0;
+    color: #555;
+  }
+  
+  /* Adet arttırma ve azaltma butonları */
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* Butonlar arasındaki mesafeyi ayarlıyoruz */
+  }
+  
+  /* + butonu (Yeşil) */
+  .quantity-controls .increase {
+    background-color: #4CAF50; /* Yeşil */
+    border: none;
+    color: white;
+    font-size: 1.5rem; /* Daha büyük font */
+    padding: 0.8rem 1.2rem; /* Daha büyük iç padding */
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    width: 60px; /* Butonun genişliğini ayarlıyoruz */
+    height: 60px; /* Butonun yüksekliğini ayarlıyoruz */
+  }
+  
+  .quantity-controls .increase:hover {
+    background-color: #45a049; /* Yeşil tonunda hover efekti */
+  }
+  
+  /* - butonu (Kırmızı) */
+  .quantity-controls .decrease {
+    background-color: #f44336; /* Kırmızı */
+    border: none;
+    color: white;
+    font-size: 1.5rem; /* Daha büyük font */
+    padding: 0.8rem 1.2rem; /* Daha büyük iç padding */
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    width: 60px; /* Butonun genişliğini ayarlıyoruz */
+    height: 60px; /* Butonun yüksekliğini ayarlıyoruz */
+  }
+  
+  .quantity-controls .decrease:hover {
+    background-color: #e53935; /* Kırmızı tonunda hover efekti */
+  }
+  
+  /* Sepet toplam ve ödeme butonu */
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
+    margin-top: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-total p {
+    margin-left: 90rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .cart-total button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 3rem; /* Daha geniş padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .cart-total button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Sepet ürünü çıkarma butonu */
+  .cart-item button {
+    background-color: #ff4c4c;
+    color: white;
+    font-size: 1rem;
+    padding: 0.8rem 2rem; /* Daha geniş padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .cart-item button:hover {
+    background-color: #e04343;
+  }
+  

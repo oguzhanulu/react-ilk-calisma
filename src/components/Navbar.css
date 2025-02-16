@@ -1,9 +1,10 @@
+/* navbar.css */
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
 
-.header {
+.navbar-header {  /* navbar-header sınıfı eklendi */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +20,7 @@ body {
   opacity: 1;
 }
 
-.logo {
+.navbar-logo {  /* navbar-logo sınıfı eklendi */
   font-size: 30px;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
@@ -32,14 +33,14 @@ body {
   color: inherit;
 }
 
-nav {
+.navbar-nav {  /* navbar-nav sınıfı eklendi */
   display: flex;
   justify-content: flex-end;
   flex-grow: 1;
   margin-right: 40px;
 }
 
-nav ul {
+.navbar-nav ul {  /* navbar-nav ul sınıfı eklendi */
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -47,15 +48,15 @@ nav ul {
   align-items: center;
 }
 
-nav ul li {
+.navbar-nav ul li {  /* navbar-nav ul li sınıfı eklendi */
   margin-left: 50px;
 }
 
-nav ul li:first-child {
+.navbar-nav ul li:first-child {  /* navbar-nav ul li:first-child sınıfı eklendi */
   margin-left: 0;
 }
 
-nav ul li a {
+.navbar-nav ul li a {  /* navbar-nav ul li a sınıfı eklendi */
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -66,7 +67,7 @@ nav ul li a {
   cursor: pointer;
 }
 
-nav ul li a::after {
+.navbar-nav ul li a::after {  /* navbar-nav ul li a::after sınıfı eklendi */
   content: '';
   display: block;
   width: 0;
@@ -78,22 +79,79 @@ nav ul li a::after {
   left: 0;
 }
 
-nav ul li a:hover {
+.navbar-nav ul li a:hover {  /* navbar-nav ul li a:hover sınıfı eklendi */
   color: #ffd000;
   transform: scale(1.1);
   text-shadow: 1px 1px 2px #000000;
 }
 
-nav ul li a:hover::after {
+.navbar-nav ul li a:hover::after {  /* navbar-nav ul li a:hover::after sınıfı eklendi */
   width: 100%;
 }
 
-nav ul li a.active {
-  color: #ffd000; 
-  font-weight: 500; 
+.navbar-nav ul li a.active {  /* navbar-nav ul li a.active sınıfı eklendi */
+  color: #ffd000;
+  font-weight: 500;
 }
 
-.icon-small {
+.navbar-icon-small {  /* navbar-icon-small sınıfı eklendi */
   font-size: 16px;
   margin-right: 8px;
+}
+/* Sepet butonunun konumu ve görünümü */
+.cart-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 50px;
+  position: relative;
+  transition: transform 0.7s, color 0.7s;
+}
+
+/* Sepet yazısının stilizasyonu */
+.cart-text {
+  margin-left: 5px; /* İkon ile yazı arasına boşluk ekledik */
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000; /* Yazı rengini istediğiniz gibi ayarlayabilirsiniz */
+}
+
+/* Sepet butonundaki ürün sayısı */
+.cart-count {
+  background-color: #ffd000;
+  color: #000000;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  font-size: 12px;
+}
+
+/* Sepet ikonunun hover efekti */
+.cart-icon:hover {
+  color: #ffd000;
+  transform: scale(1.1);
+  text-shadow: 1px 1px 2px #000000;
+}
+
+/* Sepet yazısının hover efekti */
+.cart-icon:hover .cart-text {
+  color: #ffd000;
+}
+
+/* Diğer navbar linkleri ile uyumlu hover efekti */
+.cart-icon:hover::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #ffd000;
+  transition: width 0.7s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
 }

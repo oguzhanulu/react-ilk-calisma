@@ -12,8 +12,8 @@ function Home() {
         Your browser does not support the video tag.
       </video>
       <div className="video-overlay">
-        <h1>Welcome to Our Website</h1>
-        <p>Discover our products and services</p>
+        <h1>Sitemize Hoş Geldiniz</h1>
+        <p>Ürünümüz ve Hizmetlerimizi Keşfedin</p>
         <a href="/urunumuz">
           <button className="anasayfabuton">Ürünümüz</button>
         </a>

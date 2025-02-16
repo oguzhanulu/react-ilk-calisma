@@ -1,48 +1,144 @@
+/* admin-product.css */
+.admin-container {
+  display: flex;
+}
+
 .admin-product-container {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .search-bar {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .admin-product-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .admin-product-table th, .admin-product-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .admin-product-table th {
-    background-color: #f4f4f4;
-  }
-  
-  button {
-    padding: 6px 12px;
-    margin: 0 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .edit-button {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .delete-button {
-    background-color: #f44336;
-    color: white;
-  }
-  
+  flex-grow: 1; /* Sidebar'dan kalan alanı kapla */
+  padding: 20px;
+  margin-left: 50px; /* Sidebar'ın genişliği kadar sola kaydır */
+  margin-right: 50px;
+}
+
+.sidebar {
+  width: 250px; /* Sidebar'ın genişliği */
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.admin-product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-product-table th,
+.admin-product-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.admin-product-table th {
+  text-align: center; /* Başlıklar ortalanabilir */
+}
+
+.edit-button,
+.delete-button {
+  padding: 6px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none; /* Çerçeve yok */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Hover geçiş efekti */
+}
+
+.edit-button {
+  background-color: #1abc9c;
+  color: white;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #16a085;
+  transform: scale(1.1); /* Butonu biraz büyütme */
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+  transform: scale(1.1); /* Butonu biraz büyütme */
+}
+
+.admin-product-table td {
+  text-align: left;
+  vertical-align: middle;
+}
+
+.admin-product-table th {
+  background-color: #34495e;
+  color: white;
+}
+
+.admin-product-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.admin-product-table tr:hover {
+  background-color: #ddd;
+}
+
+.add-product-button {
+  padding: 12px 25px;
+  margin-top: 1rem ;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05); /* Butonu biraz büyütme */
+}
+
+.add-product-button:focus {
+  outline: none; /* Focus kenarlığını kaldırma */
+}
+
+.add-product-button:active {
+  background-color: #1f6392;
+  transform: scale(0.98); /* Tıklandığında küçülme efekti */
+}
+
+.confirmation-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+}
+
+.confirmation-popup button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.confirmation-popup button:hover {
+  background-color: #d32f2f;
+}

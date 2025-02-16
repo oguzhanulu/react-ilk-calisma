@@ -1,22 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Product.css';
 import PageTitle from '../PageTitle';
 
 function Product() {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Ürün bilgilerini bir dizi olarak saklayalım
-  const products = [
-    { id: 1, name: "Ürün 1", imageUrl: "/anamodulson.png" },
-    { id: 2, name: "Ürün 2", imageUrl: "/anamodulson.png" },
-    { id: 3, name: "Ürün 3", imageUrl: "/anamodulson.png" },
-    { id: 4, name: "Ürün 4", imageUrl: "/anamodulson.png" },
-    { id: 5, name: "Ürün 5", imageUrl: "/anamodulson.png" },
-    { id: 6, name: "Ürün 6", imageUrl: "/anamodulson.png" },
-    { id: 7, name: "Ürün 7", imageUrl: "/anamodulson.png" },
-    { id: 8, name: "Ürün 8", imageUrl: "/anamodulson.png" },
-  ];
+  // Sepet state'i ve localStorage entegrasyonu
+  const [sepet, setSepet] = useState(() => {
+    const savedSepet = localStorage.getItem('sepet');
+    return savedSepet ? JSON.parse(savedSepet) : [];
+  });
+
+  // Sepet değiştiğinde localStorage'ı güncelle
+  useEffect(() => {
+    localStorage.setItem('sepet', JSON.stringify(sepet));
+  }, [sepet]);
+
+  // Ürünleri API'den çekme
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/products')
+      .then(response => {
+        setProducts(response.data);
+        setFilteredProducts(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Ürünler alınırken hata oluştu:', error);
+        setError('Ürünler alınırken bir hata oluştu. Lütfen tekrar deneyin.');
+        setLoading(false);
+      });
+  }, []);
 
   // Modal'ı açma fonksiyonu
   const openModal = (product) => {
@@ -30,6 +49,55 @@ function Product() {
     setSelectedProduct(null);
   };
 
+  // Filtreleme fonksiyonu
+  const filterByCategory = (category) => {
+    if (category === 'all') {
+      setFilteredProducts(products);
+    } else {
+      const filtered = products.filter(product => product.category === category);
+      setFilteredProducts(filtered);
+    }
+  };
+
+  // Sepete ürün ekleme fonksiyonu
+  const sepeteEkle = (urun) => {
+    const urunSepette = sepet.find((item) => item._id === urun._id);
+    if (urunSepette) {
+      setSepet(
+        sepet.map((item) =>
+          item._id === urun._id ? { ...item, adet: item.adet + 1 } : item
+        )
+      );
+    } else {
+      setSepet([...sepet, { ...urun, adet: 1 }]);
+    }
+  };
+
+  // Sepetten ürün adetini azaltma fonksiyonu
+  const adetAzalt = (urunId) => {
+    setSepet(
+      sepet
+        .map((item) =>
+          item._id === urunId ? { ...item, adet: item.adet - 1 } : item
+        )
+        .filter((item) => item.adet > 0) // Adet 0 veya daha az ise ürünü sepetten kaldır
+    );
+  };
+
+  // Sepetten ürün adetini artırma fonksiyonu
+  const adetArtir = (urunId) => {
+    setSepet(
+      sepet.map((item) =>
+        item._id === urunId ? { ...item, adet: item.adet + 1 } : item
+      )
+    );
+  };
+
+  // Sepeti görüntüleme fonksiyonu
+  const sepetiGoruntule = () => {
+    alert(JSON.stringify(sepet, null, 2)); // Sepeti basit bir alert ile göster
+  };
+
   return (
     <>
       <PageTitle title="Ürünümüz" />
@@ -39,36 +107,57 @@ function Product() {
           <div className="about-page">
             <h1 id="about-title">BeeonHive</h1>
             <p>
-              BeeonHive ile birlikte kovanlarınızı web uygulamamız üzerinden kolayca takip edebilirsiniz. 2 si ana modül olmak üzere toplam
-              6 modül ile birlikte kovanınızın sıcaklık ve nemini, karbondioksit ve sülfür oranını ve hatta gps modülü ile konumunu öğrenebilirsiniz.
-              Müdahele edilmesi gereken durumlarda ise gerekli ilaçlamayı da yapabilirsiniz.
+              BeeonHive ile birlikte kovanlarınızı web uygulamamız üzerinden kolayca takip edebilirsiniz. 2'si ana modül olmak üzere toplam
+              6 modül ile birlikte kovanınızın sıcaklık ve nemini, karbondioksit ve sülfür oranını ve hatta GPS modülü ile konumunu öğrenebilirsiniz.
+              Müdahale edilmesi gereken durumlarda ise gerekli ilaçlamayı da yapabilirsiniz.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="product-container">
-        {products.map((product) => (
-          <div className="product-box" key={product.id}>
-            <img src={product.imageUrl} alt={product.name} className="product-image" />
-            <h3>{product.name}</h3>
-            <button onClick={() => openModal(product)}>Detayları Göster</button>
-          </div>
-        ))}
+      {/* Filtreleme butonları */}
+      <div className="filter-buttons">
+        <button onClick={() => filterByCategory('Ana Modül')}>Ana Modül</button>
+        <button onClick={() => filterByCategory('Ek Modül')}>Ek Modül</button>
+        <button onClick={() => filterByCategory('all')}>Tümü</button>
       </div>
 
-      {isModalOpen && (
-  <div className="modal-overlay" onClick={closeModal}>
-    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-      <button className="modal-close" onClick={closeModal}>×</button> {/* Kapatma butonu */}
-      <h2>{selectedProduct.name}</h2>
-      <img src={selectedProduct.imageUrl} alt={selectedProduct.name} className="product-image" />
-      <p>Ana Modül Bu ana modül sayesinde kovanlarınızdaki anlık sıcaklık ve nem değerlerini takip edebilip anormal bir sıcaklık-nem değişikliğinde bildirim alacaksınız.</p>
-      <button className="close" onClick={closeModal}>Kapat</button>
-      <button className="buy">Satın Al</button>
-    </div>
-  </div>
-)}
+      {/* Yükleme durumu */}
+      <div className="product-container">
+        {loading ? (
+          <div className="loading-spinner">Yükleniyor...</div>
+        ) : error ? (
+          <p>{error}</p>
+        ) : (
+          filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <div className="product-box" key={product._id}>
+                <img src={`http://localhost:3001/uploads/${product.photo}`} alt={product.name} className="product-image" />
+                <h3>{product.name}</h3>
+                <p>{product.category}</p>
+                <p>{product.price} TL</p>
+                <button onClick={() => openModal(product)}>Detayları Göster</button>
+                <button className="buy" onClick={() => sepeteEkle(product)}>Sepete Ekle</button>
+              </div>
+            ))
+          ) : (
+            <p>Ürün bulunamadı.</p>
+          )
+        )}
+      </div>
+
+      {/* Modal İçeriği */}
+      {isModalOpen && selectedProduct && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>{selectedProduct.name}</h2>
+            <img src={selectedProduct.photo} alt={selectedProduct.name} className="modal-image" />
+            <p>{selectedProduct.productdetails}</p>
+            <p>Fiyat: {selectedProduct.price} TL</p>
+            <button onClick={closeModal}>Kapat</button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

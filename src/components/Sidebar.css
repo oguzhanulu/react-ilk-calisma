@@ -1,0 +1,59 @@
+/* sidebar.css */
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  justify-content: center;
+  height: 100%;
+}
+
+.sidebar ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 220px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #34495e;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 50px;  /* Sabit yükseklik */
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 0 15px;
+  font-size: 14px;
+  text-align: center;
+  color: #ecf0f1;
+  text-decoration: none;
+  width: 100%;  /* Genişliği sabitleyin */
+  height: 100%;  /* Yüksekliği sabitleyin */
+  line-height: 50px;  /* Dikeyde ortalama */
+  border-radius: 5px;
+}
+
+.sidebar__link.active,
+.sidebar__link:hover {
+  background-color: #16a085;
+  color: #fff;
+}
